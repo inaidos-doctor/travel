@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Контакты | Хадж</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+<header>
+  <div class="container nav">
+    <div class="brand">
+      <div class="logo"></div>
+      <div>Хадж-Тур Партнёр</div>
+    </div>
+    <nav class="links">
+      <a href="/">Главная</a>
+      <a href="/services">Услуги</a>
+      <a href="/contact">Контакты</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container section">
+  <h2 style="margin:0 0 14px;">Запросить расчёт</h2>
+  <p style="margin:0 0 22px; color:var(--muted); max-width:70ch;">
+    Оставьте данные — мы свяжемся с вами и подберём подходящий вариант.
+  </p>
+
+  <div class="card">
+    {% if success %}
+      <h3 style="margin-top:0; color:var(--brand)">Заявка отправлена!</h3>
+      <p style="color:var(--muted);">Спасибо, {{ name }}. Мы свяжемся по телефону: {{ phone }}</p>
+      <p style="color:var(--muted);">Сообщение: {{ message }}</p>
+      <a class="btn btn-ghost" href="/" style="margin-top:12px;">На главную</a>
+    {% else %}
+      <form method="post">
+        <label style="display:block; margin-bottom:10px; color:var(--muted);">Имя</label>
+        <input name="name" required
+               style="width:100%; padding:12px; border-radius:12px; border:1px solid var(--line); background:rgba(255,255,255,.04); color:var(--text); margin-bottom:14px;"/>
+
+        <label style="display:block; margin-bottom:10px; color:var(--muted);">Телефон</label>
+        <input name="phone" required
+               style="width:100%; padding:12px; border-radius:12px; border:1px solid var(--line); background:rgba(255,255,255,.04); color:var(--text); margin-bottom:14px;"/>
+
+        <label style="display:block; margin-bottom:10px; color:var(--muted);">Сообщение</label>
+        <textarea name="message" rows="4"
+               style="width:100%; padding:12px; border-radius:12px; border:1px solid var(--line); background:rgba(255,255,255,.04); color:var(--text); margin-bottom:14px;"></textarea>
+
+        <button class="btn btn-primary" type="submit" style="width:100%;">Отправить заявку</button>
+      </form>
+    {% endif %}
+  </div>
+</main>
+
+<footer>
+  <div class="container footer-row">
+    <div>© 2026 Хадж-Тур Партнёр</div>
+    <div><small>Форма отправляет данные на сервер</small></div>
+  </div>
+</footer>
+</body>
+</html>
